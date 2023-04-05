@@ -1,0 +1,33 @@
+const int stepPin = 5;
+const int dirPin = 2;
+const int enPin = 8;
+
+void setup() {
+  pinMode(stepPin,OUTPUT);
+  pinMode(dirPin,OUTPUT);
+  pinMode(enPin,OUTPUT);
+  digitalWrite(enPin,LOW);
+  
+}
+
+void loop() {
+  digitalWrite(dirPin,LOW);
+  for(int x = 0; x < 48; x++)
+	{
+    digitalWrite(stepPin,HIGH); 
+    delayMicroseconds(5000); //configurar segun micropasos 5000(1) 1000(4) 500 (16)
+    digitalWrite(stepPin,LOW); 
+    delayMicroseconds(5000); 
+    }
+  delay(2500);
+
+  digitalWrite(dirPin,HIGH);
+  for(int x = 0; x < 48; x++)
+	{
+    digitalWrite(stepPin,LOW); 
+    delayMicroseconds(5000); //configurar segun micropasos 5000(1) 1000(4) 500 (16)
+    digitalWrite(stepPin,HIGH); 
+    delayMicroseconds(5000); 
+    }
+  delay(2500);
+}
